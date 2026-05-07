@@ -1,5 +1,4 @@
-/* Inline SVG illustrations + brand mark + insurer pseudo-logos.
-   All hand-built, no external assets, original — not branded. */
+/* Inline SVG illustrations + brand mark + insurer logo cards. */
 
 const Mark = ({ size = 28 }) => (
   <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -32,36 +31,45 @@ const Logo = ({ light = false }) => (
   </div>
 );
 
-/* Original wordmark cards for insurers — not real logos. */
-const InsurerMark = ({ name, sub, color = '#0b2545', accent = '#e8a93a', shape = 'shield' }) => (
+/* Insurer card — uses real logo image when logoSrc is provided. */
+const InsurerMark = ({ name, sub, color = '#1565C0', accent = '#F6D365', shape = 'shield', logoSrc }) => (
   <div style={{
     background: '#fff', border: '1px solid var(--line)', borderRadius: 12,
-    padding: '18px 18px', display: 'flex', alignItems: 'center', gap: 14,
+    padding: '14px 16px', display: 'flex', alignItems: 'center', gap: 14,
     minHeight: 76,
   }}>
     <div style={{
-      width: 44, height: 44, borderRadius: 10, background: color,
-      display: 'grid', placeItems: 'center', flex: '0 0 auto'
+      width: 52, height: 52, borderRadius: 10,
+      background: logoSrc ? '#f8fafc' : color,
+      border: logoSrc ? '1px solid var(--line)' : 'none',
+      display: 'grid', placeItems: 'center', flex: '0 0 auto',
+      overflow: 'hidden', padding: logoSrc ? 6 : 0,
     }}>
-      {shape === 'shield' && (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-          <path d="M12 3 L20 6 V12 C20 16.5 16.5 19.8 12 21 C7.5 19.8 4 16.5 4 12 V6 Z" stroke={accent} strokeWidth="2"/>
-        </svg>
-      )}
-      {shape === 'circle' && (
-        <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2" fill="none"/><circle cx="12" cy="12" r="3" fill={accent}/></svg>
-      )}
-      {shape === 'mountain' && (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 19 L9 9 L13 14 L17 7 L21 19 Z" stroke={accent} strokeWidth="2" strokeLinejoin="round"/></svg>
-      )}
-      {shape === 'globe' && (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2"/><path d="M4 12 H20 M12 4 C15 8 15 16 12 20 M12 4 C9 8 9 16 12 20" stroke={accent} strokeWidth="1.4"/></svg>
-      )}
-      {shape === 'plane' && (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 14 L21 7 L17 17 L13 14 L10 18 L9 14 Z" stroke={accent} strokeWidth="1.8" strokeLinejoin="round"/></svg>
-      )}
-      {shape === 'compass' && (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2"/><path d="M12 7 L14 12 L12 17 L10 12 Z" fill={accent}/></svg>
+      {logoSrc ? (
+        <img src={logoSrc} alt={name} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
+      ) : (
+        <>
+          {shape === 'shield' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3 L20 6 V12 C20 16.5 16.5 19.8 12 21 C7.5 19.8 4 16.5 4 12 V6 Z" stroke={accent} strokeWidth="2"/>
+            </svg>
+          )}
+          {shape === 'circle' && (
+            <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2" fill="none"/><circle cx="12" cy="12" r="3" fill={accent}/></svg>
+          )}
+          {shape === 'mountain' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 19 L9 9 L13 14 L17 7 L21 19 Z" stroke={accent} strokeWidth="2" strokeLinejoin="round"/></svg>
+          )}
+          {shape === 'globe' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2"/><path d="M4 12 H20 M12 4 C15 8 15 16 12 20 M12 4 C9 8 9 16 12 20" stroke={accent} strokeWidth="1.4"/></svg>
+          )}
+          {shape === 'plane' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 14 L21 7 L17 17 L13 14 L10 18 L9 14 Z" stroke={accent} strokeWidth="1.8" strokeLinejoin="round"/></svg>
+          )}
+          {shape === 'compass' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke={accent} strokeWidth="2"/><path d="M12 7 L14 12 L12 17 L10 12 Z" fill={accent}/></svg>
+          )}
+        </>
       )}
     </div>
     <div style={{ lineHeight: 1.15 }}>
@@ -71,8 +79,9 @@ const InsurerMark = ({ name, sub, color = '#0b2545', accent = '#e8a93a', shape =
   </div>
 );
 
-/* Hero illustration tiles — stylized scenes with CSS gradients + simple SVG. */
+/* ─── Hero illustration tiles ─── */
 
+/* AUTO — kept as-is, user confirmed it's fine */
 const TileAuto = () => (
   <div style={tileStyles.base(linear('#1d7ad6','#2896FE'))}>
     <div style={tileStyles.sky}/>
@@ -94,68 +103,171 @@ const TileAuto = () => (
   </div>
 );
 
+/* MOTO — sportbike rediseñada */
 const TileMoto = () => (
-  <div style={tileStyles.base(linear('#0277BD','#0288D1'))}>
-    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 70% 30%, #ffffff44, transparent 60%)'}}/>
+  <div style={tileStyles.base(linear('#0D47A1','#1565C0'))}>
+    <div style={tileStyles.sky}/>
     <div style={tileStyles.road}/>
-    <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'78%' }}>
-      <ellipse cx="110" cy="115" rx="90" ry="5" fill="rgba(0,0,0,.25)"/>
-      <circle cx="58" cy="98" r="20" fill="#15191f"/><circle cx="58" cy="98" r="9" fill="none" stroke="#6b7385" strokeWidth="1.5"/>
-      <circle cx="166" cy="98" r="20" fill="#15191f"/><circle cx="166" cy="98" r="9" fill="none" stroke="#6b7385" strokeWidth="1.5"/>
-      <path d="M60 96 L100 70 L130 70 L168 96" stroke="#F6D365" strokeWidth="4" fill="none" strokeLinecap="round"/>
-      <path d="M100 70 Q115 55 135 60 L150 50" stroke="#f6f3ec" strokeWidth="3" fill="none" strokeLinecap="round"/>
-      <rect x="92" y="62" width="40" height="14" rx="4" fill="#f6f3ec"/>
-      <circle cx="150" cy="50" r="6" fill="#1d7ad6" stroke="#F6D365" strokeWidth="1.5"/>
+    <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'80%' }}>
+      <ellipse cx="110" cy="118" rx="86" ry="4" fill="rgba(0,0,0,.3)"/>
+      {/* rear wheel */}
+      <circle cx="62" cy="96" r="22" fill="#111520"/>
+      <circle cx="62" cy="96" r="9" fill="none" stroke="#4a5568" strokeWidth="2"/>
+      <circle cx="62" cy="96" r="3" fill="#4a5568"/>
+      <line x1="62" y1="74" x2="62" y2="118" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
+      <line x1="40" y1="96" x2="84" y2="96" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
+      <line x1="46" y1="80" x2="78" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
+      <line x1="78" y1="80" x2="46" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
+      {/* front wheel */}
+      <circle cx="162" cy="96" r="22" fill="#111520"/>
+      <circle cx="162" cy="96" r="9" fill="none" stroke="#4a5568" strokeWidth="2"/>
+      <circle cx="162" cy="96" r="3" fill="#4a5568"/>
+      <line x1="162" y1="74" x2="162" y2="118" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
+      <line x1="140" y1="96" x2="184" y2="96" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
+      <line x1="146" y1="80" x2="178" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
+      <line x1="178" y1="80" x2="146" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
+      {/* frame */}
+      <path d="M64 96 L96 68 L150 68 L162 96" stroke="#F6D365" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      <line x1="100" y1="90" x2="115" y2="56" stroke="#F6D365" strokeWidth="2.5" strokeLinecap="round"/>
+      {/* fairing/body */}
+      <path d="M96 68 Q108 50 132 52 L152 68 L140 78 L96 78 Z" fill="#f0f4f8"/>
+      <path d="M96 68 L116 64 L136 66 L128 72 L96 72 Z" fill="#d4dce8"/>
+      {/* exhaust */}
+      <path d="M74 90 L62 100 L59 105" stroke="#888" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
+      {/* handlebars */}
+      <line x1="154" y1="62" x2="170" y2="54" stroke="#e8edf2" strokeWidth="2.5" strokeLinecap="round"/>
+      <line x1="170" y1="54" x2="178" y2="58" stroke="#e8edf2" strokeWidth="2" strokeLinecap="round"/>
+      {/* headlight */}
+      <ellipse cx="168" cy="74" rx="7" ry="5" fill="#F6D365" opacity=".85"/>
+      <ellipse cx="168" cy="74" rx="4" ry="3" fill="#fff" opacity=".4"/>
+      {/* windscreen */}
+      <path d="M148 60 L158 52 L163 59 L153 67 Z" fill="rgba(180,220,255,.45)" stroke="rgba(255,255,255,.35)" strokeWidth=".8"/>
     </svg>
   </div>
 );
 
+/* HOGAR — casa con detalles */
+const TileHogar = () => (
+  <div style={tileStyles.base(linear('#0277BD','#1565C0'))}>
+    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 50% -10%, rgba(246,211,101,.25), transparent 55%)'}}/>
+    <svg viewBox="0 0 220 150" style={{ position:'absolute', bottom: 0, left:'50%', transform:'translateX(-50%)', width:'100%', height:'100%' }}>
+      {/* ground */}
+      <rect x="0" y="128" width="220" height="22" fill="#0a3d62"/>
+      {/* shrubs */}
+      <ellipse cx="46" cy="128" rx="18" ry="11" fill="#1a6640"/>
+      <ellipse cx="55" cy="122" rx="12" ry="9" fill="#1f7a4d"/>
+      <ellipse cx="174" cy="128" rx="18" ry="11" fill="#1a6640"/>
+      <ellipse cx="165" cy="122" rx="12" ry="9" fill="#1f7a4d"/>
+      {/* house body */}
+      <rect x="50" y="74" width="120" height="54" fill="#f0f4f8"/>
+      {/* roof */}
+      <path d="M36 76 L110 24 L184 76 Z" fill="#e2e8f0"/>
+      <path d="M36 76 L110 24 L184 76" stroke="#2896FE" strokeWidth="2.5" fill="none" strokeLinejoin="round"/>
+      {/* chimney */}
+      <rect x="142" y="36" width="13" height="26" fill="#d4dce8"/>
+      <rect x="140" y="33" width="17" height="6" rx="1" fill="#c5d0de"/>
+      {/* door */}
+      <rect x="95" y="90" width="30" height="38" rx="3" fill="#1565C0"/>
+      <path d="M95 90 Q110 85 125 90" fill="rgba(255,255,255,.15)"/>
+      <circle cx="121" cy="110" r="2.5" fill="#F6D365"/>
+      {/* left window */}
+      <rect x="58" y="84" width="24" height="20" rx="2" fill="#2896FE" opacity=".75"/>
+      <line x1="70" y1="84" x2="70" y2="104" stroke="rgba(255,255,255,.5)" strokeWidth="1.5"/>
+      <line x1="58" y1="94" x2="82" y2="94" stroke="rgba(255,255,255,.5)" strokeWidth="1.5"/>
+      {/* right window */}
+      <rect x="138" y="84" width="24" height="20" rx="2" fill="#2896FE" opacity=".75"/>
+      <line x1="150" y1="84" x2="150" y2="104" stroke="rgba(255,255,255,.5)" strokeWidth="1.5"/>
+      <line x1="138" y1="94" x2="162" y2="94" stroke="rgba(255,255,255,.5)" strokeWidth="1.5"/>
+      {/* front path */}
+      <rect x="104" y="128" width="12" height="22" fill="#b0bec5" opacity=".6"/>
+    </svg>
+  </div>
+);
+
+/* BICI — bicicleta de ruta */
 const TileBici = () => (
   <div style={tileStyles.base(linear('#1f7a4d','#2f9c66'))}>
-    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 30% 30%, #ffffff55, transparent 60%)'}}/>
+    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 30% 25%, rgba(255,255,255,.35), transparent 55%)'}}/>
     <div style={{...tileStyles.road, background:'linear-gradient(180deg, transparent, #15633a 70%)'}}/>
-    <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'78%' }}>
-      <ellipse cx="110" cy="115" rx="85" ry="4" fill="rgba(0,0,0,.25)"/>
-      <circle cx="58" cy="92" r="22" fill="none" stroke="#f6f3ec" strokeWidth="3"/>
-      <circle cx="162" cy="92" r="22" fill="none" stroke="#f6f3ec" strokeWidth="3"/>
-      <path d="M58 92 L100 92 L120 60 L162 92 M100 92 L130 60" stroke="#F6D365" strokeWidth="3" fill="none"/>
-      <circle cx="100" cy="92" r="4" fill="#F6D365"/>
-      <path d="M120 60 L116 50 L132 50" stroke="#f6f3ec" strokeWidth="3" fill="none"/>
+    <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'82%' }}>
+      <ellipse cx="110" cy="118" rx="82" ry="3.5" fill="rgba(0,0,0,.25)"/>
+      {/* rear wheel */}
+      <circle cx="60" cy="90" r="24" fill="none" stroke="#f0f4f8" strokeWidth="3"/>
+      <circle cx="60" cy="90" r="3.5" fill="#f0f4f8"/>
+      <line x1="60" y1="66" x2="60" y2="114" stroke="#cdd8e4" strokeWidth="1.2" opacity=".6"/>
+      <line x1="36" y1="90" x2="84" y2="90" stroke="#cdd8e4" strokeWidth="1.2" opacity=".6"/>
+      <line x1="43" y1="73" x2="77" y2="107" stroke="#cdd8e4" strokeWidth="1" opacity=".5"/>
+      <line x1="77" y1="73" x2="43" y2="107" stroke="#cdd8e4" strokeWidth="1" opacity=".5"/>
+      {/* front wheel */}
+      <circle cx="160" cy="90" r="24" fill="none" stroke="#f0f4f8" strokeWidth="3"/>
+      <circle cx="160" cy="90" r="3.5" fill="#f0f4f8"/>
+      <line x1="160" y1="66" x2="160" y2="114" stroke="#cdd8e4" strokeWidth="1.2" opacity=".6"/>
+      <line x1="136" y1="90" x2="184" y2="90" stroke="#cdd8e4" strokeWidth="1.2" opacity=".6"/>
+      <line x1="143" y1="73" x2="177" y2="107" stroke="#cdd8e4" strokeWidth="1" opacity=".5"/>
+      <line x1="177" y1="73" x2="143" y2="107" stroke="#cdd8e4" strokeWidth="1" opacity=".5"/>
+      {/* main frame triangle */}
+      <path d="M60 90 L100 90 L118 58 Z" stroke="#F6D365" strokeWidth="3" fill="none" strokeLinejoin="round" strokeLinecap="round"/>
+      {/* seat tube */}
+      <line x1="100" y1="90" x2="112" y2="54" stroke="#F6D365" strokeWidth="3" strokeLinecap="round"/>
+      {/* fork */}
+      <path d="M118 58 L144 76 L160 90" stroke="#f0f4f8" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* top tube */}
+      <line x1="118" y1="58" x2="112" y2="54" stroke="#F6D365" strokeWidth="2.5" strokeLinecap="round"/>
+      {/* handlebar stem */}
+      <line x1="136" y1="68" x2="136" y2="52" stroke="#f0f4f8" strokeWidth="3" strokeLinecap="round"/>
+      {/* handlebars */}
+      <path d="M126 52 L148 52 L150 55" stroke="#f0f4f8" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M126 52 L124 55" stroke="#f0f4f8" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* seat post */}
+      <line x1="112" y1="54" x2="112" y2="42" stroke="#f0f4f8" strokeWidth="2.5" strokeLinecap="round"/>
+      {/* saddle */}
+      <path d="M103 42 L123 42" stroke="#e8edf2" strokeWidth="4" strokeLinecap="round"/>
+      {/* pedal crank */}
+      <circle cx="100" cy="90" r="4.5" fill="#F6D365"/>
+      <line x1="94" y1="86" x2="106" y2="94" stroke="#d4a800" strokeWidth="3" strokeLinecap="round"/>
     </svg>
   </div>
 );
 
-const TileHogar = () => (
-  <div style={tileStyles.base(linear('#1d7ad6','#2896FE'))}>
-    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 50% 0%, #F6D36588, transparent 65%)'}}/>
-    <svg viewBox="0 0 220 140" style={{ position:'absolute', bottom: 0, left:'50%', transform:'translateX(-50%)', width:'92%' }}>
-      <rect x="0" y="120" width="220" height="20" fill="#0e3a66"/>
-      <path d="M40 70 L110 25 L180 70 L180 120 L40 120 Z" fill="#f6f3ec"/>
-      <path d="M30 72 L110 18 L190 72" stroke="#2896FE" strokeWidth="3" fill="none" strokeLinejoin="round"/>
-      <rect x="95" y="85" width="30" height="35" fill="#1d7ad6"/>
-      <rect x="55" y="80" width="22" height="22" fill="#F6D365"/>
-      <rect x="143" y="80" width="22" height="22" fill="#F6D365"/>
-      <line x1="55" y1="91" x2="77" y2="91" stroke="#1d7ad6" strokeWidth="1.2"/>
-      <line x1="66" y1="80" x2="66" y2="102" stroke="#1d7ad6" strokeWidth="1.2"/>
-      <line x1="143" y1="91" x2="165" y2="91" stroke="#1d7ad6" strokeWidth="1.2"/>
-      <line x1="154" y1="80" x2="154" y2="102" stroke="#1d7ad6" strokeWidth="1.2"/>
-    </svg>
-  </div>
-);
-
+/* VIAJERO — valija + avión */
 const TileViajero = () => (
-  <div style={tileStyles.base('linear-gradient(180deg, #ffd089 0%, #ff9a6c 55%, #2a8fb8 55%, #1f6e93 100%)')}>
-    <div style={{ position:'absolute', top: 18, left: '50%', transform:'translateX(-50%)', width: 56, height: 56, borderRadius: '50%', background:'radial-gradient(circle, #fff5cc, #ffcf6c 70%, transparent 72%)' }}/>
-    <svg viewBox="0 0 220 140" style={{ position:'absolute', bottom: 0, left: 0, width: '100%' }}>
-      <path d="M20 140 Q22 105 30 80" stroke="#1c2a1c" strokeWidth="4" fill="none" strokeLinecap="round"/>
-      <path d="M30 80 Q10 70 0 78 M30 80 Q15 60 5 55 M30 80 Q35 60 50 55 M30 80 Q40 70 55 75" stroke="#1f5135" strokeWidth="3" fill="none" strokeLinecap="round"/>
-      <path d="M195 140 Q193 100 188 78" stroke="#1c2a1c" strokeWidth="4" fill="none" strokeLinecap="round"/>
-      <path d="M188 78 Q205 65 220 70 M188 78 Q200 55 215 50 M188 78 Q180 55 168 52 M188 78 Q175 70 160 76" stroke="#1f5135" strokeWidth="3" fill="none" strokeLinecap="round"/>
-      <path d="M0 95 Q30 90 60 95 T120 95 T180 95 T240 95" stroke="#ffffff66" strokeWidth="1.5" fill="none"/>
-      <path d="M0 110 Q30 105 60 110 T120 110 T180 110 T240 110" stroke="#ffffff44" strokeWidth="1.5" fill="none"/>
-      <g transform="translate(120,38) rotate(-12)">
-        <path d="M0 0 L40 -4 L48 -8 L60 -8 L52 0 L60 8 L48 8 L40 4 L0 0 Z" fill="#fff" stroke="#1d7ad6" strokeWidth="1.2"/>
+  <div style={tileStyles.base('linear-gradient(155deg, #1565C0 0%, #0D47A1 55%, #0277BD 100%)')}>
+    <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 75% 15%, rgba(246,211,101,.18), transparent 45%)' }}/>
+    <svg viewBox="0 0 220 140" style={{ position:'absolute', inset:0, width:'100%', height:'100%' }}>
+      {/* clouds */}
+      <ellipse cx="38" cy="28" rx="22" ry="9" fill="rgba(255,255,255,.16)"/>
+      <ellipse cx="52" cy="22" rx="15" ry="8" fill="rgba(255,255,255,.12)"/>
+      <ellipse cx="175" cy="18" rx="18" ry="8" fill="rgba(255,255,255,.11)"/>
+      <ellipse cx="190" cy="13" rx="13" ry="6" fill="rgba(255,255,255,.09)"/>
+      {/* flight arc */}
+      <path d="M28 108 Q110 22 192 48" stroke="rgba(246,211,101,.45)" strokeWidth="1.5" fill="none" strokeDasharray="5 4"/>
+      {/* plane */}
+      <g transform="translate(150,36) rotate(-28)">
+        <path d="M0 0 L34 -3 L42 -7 L52 -7 L45 0 L52 7 L42 7 L34 3 L0 0 Z" fill="#ffffff"/>
+        <path d="M14 -1 L8 -11 L17 -9 Z" fill="#e8edf2"/>
+        <path d="M14 1 L8 11 L17 9 Z" fill="#e8edf2"/>
+        <rect x="38" y="-2" width="8" height="4" rx="1" fill="#F6D365"/>
       </g>
+      {/* suitcase body */}
+      <rect x="74" y="82" width="72" height="50" rx="7" fill="#f0f4f8"/>
+      <rect x="74" y="82" width="72" height="50" rx="7" fill="none" stroke="rgba(21,101,192,.25)" strokeWidth="1.5"/>
+      {/* handle */}
+      <path d="M94 82 L94 73 Q94 68 110 68 Q126 68 126 73 L126 82" fill="none" stroke="#d4dce8" strokeWidth="3" strokeLinecap="round"/>
+      {/* stripe */}
+      <line x1="74" y1="107" x2="146" y2="107" stroke="rgba(21,101,192,.18)" strokeWidth="2"/>
+      <line x1="110" y1="82" x2="110" y2="132" stroke="rgba(21,101,192,.18)" strokeWidth="2"/>
+      {/* clasp */}
+      <rect x="102" y="103" width="16" height="8" rx="3" fill="#1565C0"/>
+      <circle cx="110" cy="107" r="2" fill="#F6D365"/>
+      {/* wheels */}
+      <circle cx="86" cy="132" r="5" fill="#aab4c4"/>
+      <circle cx="134" cy="132" r="5" fill="#aab4c4"/>
+      {/* passport */}
+      <rect x="152" y="96" width="30" height="38" rx="4" fill="#1565C0"/>
+      <rect x="156" y="100" width="22" height="14" rx="2" fill="rgba(255,255,255,.18)"/>
+      <line x1="156" y1="120" x2="178" y2="120" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
+      <line x1="156" y1="124" x2="174" y2="124" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
+      <line x1="156" y1="128" x2="170" y2="128" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
     </svg>
   </div>
 );
@@ -174,7 +286,7 @@ const tileStyles = {
   }),
   sky: {
     position: 'absolute', inset: 0,
-    background: 'radial-gradient(ellipse at 50% 0%, #ffffff33, transparent 60%)',
+    background: 'radial-gradient(ellipse at 50% 0%, #ffffff28, transparent 60%)',
   },
   road: {
     position: 'absolute', left: 0, right: 0, bottom: 0, height: '38%',

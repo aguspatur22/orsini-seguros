@@ -41,9 +41,9 @@ const Aseguradoras = () => (
           </h3>
         </div>
         <div className="aseg-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
-          <InsurerMark name="Federación Patronal" sub="Vehículos · Hogar" color="#1d7ad6" accent="#F6D365" shape="shield" />
-          <InsurerMark name="Mercantil Andina" sub="Vehículos · Hogar" color="#1f7a4d" accent="#F6D365" shape="mountain" />
-          <InsurerMark name="Rivadavia Seguros" sub="Vehículos · Bici" color="#FF4B99" accent="#F6D365" shape="circle" />
+          <InsurerMark name="Federación Patronal" sub="Vehículos · Hogar" logoSrc="assets/fed-patronal-logo.png" />
+          <InsurerMark name="Mercantil Andina" sub="Vehículos · Hogar" logoSrc="assets/mercantil-andina-logo.png" />
+          <InsurerMark name="Rivadavia Seguros" sub="Vehículos · Bici" logoSrc="assets/rivadavia-seguros-logo.jpg" />
         </div>
       </div>
 
@@ -59,9 +59,9 @@ const Aseguradoras = () => (
           </h3>
         </div>
         <div className="aseg-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
-          <InsurerMark name="GO! Assistance" sub="Latam y mundo" color="#1d7ad6" accent="#F6D365" shape="globe" />
-          <InsurerMark name="Universal Assistance" sub="Cobertura premium" color="#FF4B99" accent="#F6D365" shape="plane" />
-          <InsurerMark name="Assist Card" sub="Atención 24/7" color="#1f7a4d" accent="#F6D365" shape="compass" />
+          <InsurerMark name="GO! Assistance" sub="Latam y mundo" logoSrc="assets/go-assistance-logo.png" />
+          <InsurerMark name="Universal Assistance" sub="Cobertura premium" logoSrc="assets/universal-assistance-logo.webp" />
+          <InsurerMark name="Assist Card" sub="Atención 24/7" logoSrc="assets/assist-card-logo.png" />
         </div>
       </div>
     </Container>

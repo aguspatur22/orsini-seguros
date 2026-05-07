@@ -404,9 +404,9 @@ Disyuntor: ${v.disyuntor || 'no especificado'}`;
 /* ---------- Asistencia al viajero ---------- */
 
 const ASISTENCIAS = [
-  { id: 'go', name: 'GO! Assistance', tag: 'Cobertura amplia · Latam y mundo', url: '#go-assistance', shape:'globe' },
-  { id: 'universal', name: 'Universal Assistance', tag: 'Líder regional · Cobertura premium', url: '#universal-assistance', shape:'plane' },
-  { id: 'assist', name: 'Assist Card', tag: 'Marca histórica · Atención 24/7', url: '#assist-card', shape:'compass' },
+  { id: 'go', name: 'GO! Assistance', tag: 'Cobertura amplia · Latam y mundo', url: '#go-assistance', logo: 'assets/go-assistance-logo.png' },
+  { id: 'universal', name: 'Universal Assistance', tag: 'Líder regional · Cobertura premium', url: '#universal-assistance', logo: 'assets/universal-assistance-logo.webp' },
+  { id: 'assist', name: 'Assist Card', tag: 'Marca histórica · Atención 24/7', url: '#assist-card', logo: 'assets/assist-card-logo.png' },
 ];
 
 const FormViajero = () => {
@@ -485,18 +485,12 @@ const FormViajero = () => {
           onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'var(--line)'; }}
           >
             <div style={{
-              width: 40, height: 40, borderRadius: 10, background: 'var(--brand)',
-              display: 'grid', placeItems: 'center', flex: '0 0 auto'
+              width: 44, height: 44, borderRadius: 10, background: '#f0f4f8',
+              border: '1px solid var(--line)',
+              display: 'grid', placeItems: 'center', flex: '0 0 auto',
+              overflow: 'hidden', padding: 5,
             }}>
-              {a.shape === 'globe' && (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#F6D365" strokeWidth="2"/><path d="M4 12 H20 M12 4 C15 8 15 16 12 20 M12 4 C9 8 9 16 12 20" stroke="#F6D365" strokeWidth="1.4"/></svg>
-              )}
-              {a.shape === 'plane' && (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 14 L21 7 L17 17 L13 14 L10 18 L9 14 Z" stroke="#F6D365" strokeWidth="1.8" strokeLinejoin="round"/></svg>
-              )}
-              {a.shape === 'compass' && (
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#F6D365" strokeWidth="2"/><path d="M12 7 L14 12 L12 17 L10 12 Z" fill="#F6D365"/></svg>
-              )}
+              <img src={a.logo} alt={a.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
             </div>
             <div className="viajero-card-text" style={{ flex: 1, minWidth: 0, lineHeight: 1.2 }}>
               <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{a.name}</div>
