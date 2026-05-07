@@ -59,7 +59,9 @@
       .three-col { grid-template-columns: 1fr !important; gap: 14px !important; }
       .two-col { grid-template-columns: 1fr !important; gap: 24px !important; }
       .calc-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-      .footer-grid { grid-template-columns: 1fr !important; gap: 32px !important; padding-bottom: 32px !important; }
+      .footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px 20px !important; padding-bottom: 32px !important; }
+      .footer-grid > div:first-child { grid-column: 1 / -1 !important; }
+      .footer-logo { display: none !important; }
       .testi-grid { grid-template-columns: 1fr !important; }
       .tips-grid { grid-template-columns: repeat(2, 1fr) !important; }
       .faq-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
