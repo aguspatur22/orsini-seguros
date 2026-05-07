@@ -105,8 +105,8 @@ const TileAuto = () => (
 
 /* MOTO — sportbike realista, fondo oscuro para contraste */
 const TileMoto = () => (
-  <div style={tileStyles.base('linear-gradient(180deg, #0F172A 0%, #1E293B 100%)')}>
-    <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 72% 18%, rgba(246,211,101,.14), transparent 50%)' }}/>
+  <div style={tileStyles.base('linear-gradient(180deg, #1A1035 0%, #2D1960 100%)')}>
+    <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 72% 18%, rgba(246,211,101,.18), transparent 50%)' }}/>
     <div style={tileStyles.road}/>
     <svg viewBox="0 0 220 128" style={{ position:'absolute', bottom: 10, left:'50%', transform:'translateX(-50%)', width:'86%' }}>
       {/* ground shadow */}
@@ -186,8 +186,8 @@ const TileMoto = () => (
 
 /* HOGAR — casa con detalles */
 const TileHogar = () => (
-  <div style={tileStyles.base(linear('#0277BD','#1565C0'))}>
-    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 50% -10%, rgba(246,211,101,.25), transparent 55%)'}}/>
+  <div style={tileStyles.base(linear('#BF360C','#E64A19'))}>
+    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 50% -10%, rgba(255,220,130,.3), transparent 55%)'}}/>
     <svg viewBox="0 0 220 150" style={{ position:'absolute', bottom: 0, left:'50%', transform:'translateX(-50%)', width:'100%', height:'100%' }}>
       {/* ground */}
       <rect x="0" y="128" width="220" height="22" fill="#0a3d62"/>
