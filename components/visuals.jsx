@@ -103,45 +103,83 @@ const TileAuto = () => (
   </div>
 );
 
-/* MOTO — sportbike rediseñada */
+/* MOTO — sportbike realista, fondo oscuro para contraste */
 const TileMoto = () => (
-  <div style={tileStyles.base(linear('#0D47A1','#1565C0'))}>
-    <div style={tileStyles.sky}/>
+  <div style={tileStyles.base('linear-gradient(180deg, #0F172A 0%, #1E293B 100%)')}>
+    <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 72% 18%, rgba(246,211,101,.14), transparent 50%)' }}/>
     <div style={tileStyles.road}/>
-    <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'80%' }}>
-      <ellipse cx="110" cy="118" rx="86" ry="4" fill="rgba(0,0,0,.3)"/>
-      {/* rear wheel */}
-      <circle cx="62" cy="96" r="22" fill="#111520"/>
-      <circle cx="62" cy="96" r="9" fill="none" stroke="#4a5568" strokeWidth="2"/>
-      <circle cx="62" cy="96" r="3" fill="#4a5568"/>
-      <line x1="62" y1="74" x2="62" y2="118" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
-      <line x1="40" y1="96" x2="84" y2="96" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
-      <line x1="46" y1="80" x2="78" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
-      <line x1="78" y1="80" x2="46" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
-      {/* front wheel */}
-      <circle cx="162" cy="96" r="22" fill="#111520"/>
-      <circle cx="162" cy="96" r="9" fill="none" stroke="#4a5568" strokeWidth="2"/>
-      <circle cx="162" cy="96" r="3" fill="#4a5568"/>
-      <line x1="162" y1="74" x2="162" y2="118" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
-      <line x1="140" y1="96" x2="184" y2="96" stroke="#3a4556" strokeWidth="1.2" opacity=".7"/>
-      <line x1="146" y1="80" x2="178" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
-      <line x1="178" y1="80" x2="146" y2="112" stroke="#3a4556" strokeWidth="1.2" opacity=".5"/>
-      {/* frame */}
-      <path d="M64 96 L96 68 L150 68 L162 96" stroke="#F6D365" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-      <line x1="100" y1="90" x2="115" y2="56" stroke="#F6D365" strokeWidth="2.5" strokeLinecap="round"/>
-      {/* fairing/body */}
-      <path d="M96 68 Q108 50 132 52 L152 68 L140 78 L96 78 Z" fill="#f0f4f8"/>
-      <path d="M96 68 L116 64 L136 66 L128 72 L96 72 Z" fill="#d4dce8"/>
-      {/* exhaust */}
-      <path d="M74 90 L62 100 L59 105" stroke="#888" strokeWidth="2.5" fill="none" strokeLinecap="round"/>
-      {/* handlebars */}
-      <line x1="154" y1="62" x2="170" y2="54" stroke="#e8edf2" strokeWidth="2.5" strokeLinecap="round"/>
-      <line x1="170" y1="54" x2="178" y2="58" stroke="#e8edf2" strokeWidth="2" strokeLinecap="round"/>
-      {/* headlight */}
-      <ellipse cx="168" cy="74" rx="7" ry="5" fill="#F6D365" opacity=".85"/>
-      <ellipse cx="168" cy="74" rx="4" ry="3" fill="#fff" opacity=".4"/>
-      {/* windscreen */}
-      <path d="M148 60 L158 52 L163 59 L153 67 Z" fill="rgba(180,220,255,.45)" stroke="rgba(255,255,255,.35)" strokeWidth=".8"/>
+    <svg viewBox="0 0 220 128" style={{ position:'absolute', bottom: 10, left:'50%', transform:'translateX(-50%)', width:'86%' }}>
+      {/* ground shadow */}
+      <ellipse cx="112" cy="120" rx="84" ry="4" fill="rgba(0,0,0,.4)"/>
+
+      {/* REAR WHEEL */}
+      <circle cx="58" cy="94" r="23" fill="#111827"/>
+      <circle cx="58" cy="94" r="17" fill="#1e2736"/>
+      <circle cx="58" cy="94" r="10" fill="none" stroke="#374151" strokeWidth="1.8"/>
+      <circle cx="58" cy="94" r="3.5" fill="#4b5563"/>
+      {/* spokes */}
+      <line x1="58" y1="71" x2="58" y2="117" stroke="#374151" strokeWidth="1.3"/>
+      <line x1="35" y1="94" x2="81" y2="94" stroke="#374151" strokeWidth="1.3"/>
+      <line x1="41.7" y1="77.7" x2="74.3" y2="110.3" stroke="#374151" strokeWidth="1"/>
+      <line x1="74.3" y1="77.7" x2="41.7" y2="110.3" stroke="#374151" strokeWidth="1"/>
+
+      {/* FRONT WHEEL */}
+      <circle cx="163" cy="94" r="23" fill="#111827"/>
+      <circle cx="163" cy="94" r="17" fill="#1e2736"/>
+      <circle cx="163" cy="94" r="10" fill="none" stroke="#374151" strokeWidth="1.8"/>
+      <circle cx="163" cy="94" r="3.5" fill="#4b5563"/>
+      <line x1="163" y1="71" x2="163" y2="117" stroke="#374151" strokeWidth="1.3"/>
+      <line x1="140" y1="94" x2="186" y2="94" stroke="#374151" strokeWidth="1.3"/>
+      <line x1="146.7" y1="77.7" x2="179.3" y2="110.3" stroke="#374151" strokeWidth="1"/>
+      <line x1="179.3" y1="77.7" x2="146.7" y2="110.3" stroke="#374151" strokeWidth="1"/>
+
+      {/* SWINGARM */}
+      <path d="M103 90 L58 94" stroke="#64748b" strokeWidth="4" fill="none" strokeLinecap="round"/>
+      <path d="M103 90 L103 84 L58 88" stroke="#475569" strokeWidth="2" fill="none" strokeLinecap="round"/>
+
+      {/* FRAME — backbone */}
+      <path d="M103 88 L126 62 L148 64" stroke="#cbd5e1" strokeWidth="3.5" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+      {/* down tube */}
+      <path d="M126 62 L108 88" stroke="#94a3b8" strokeWidth="2.8" fill="none" strokeLinecap="round"/>
+
+      {/* FRONT FORK */}
+      <line x1="150" y1="65" x2="163" y2="94" stroke="#94a3b8" strokeWidth="4" strokeLinecap="round"/>
+      <line x1="145" y1="67" x2="158" y2="94" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round"/>
+
+      {/* ENGINE BLOCK */}
+      <path d="M90 88 L125 88 L128 98 L87 98 Z" fill="#1e2736" stroke="#374151" strokeWidth="1"/>
+      <rect x="96" y="91" width="12" height="6" rx="1" fill="#374151"/>
+      <rect x="112" y="91" width="12" height="6" rx="1" fill="#374151"/>
+
+      {/* FAIRING — main body */}
+      <path d="M103 88 L108 88 L126 62 L148 64 L156 72 L162 88 Q155 82 148 80 L130 78 L110 84 Z" fill="#e2e8f0"/>
+      {/* fairing detail / panel line */}
+      <path d="M120 80 Q138 72 150 74 L155 80 L140 82 Q128 84 120 80 Z" fill="#cbd5e1"/>
+      {/* lower fairing */}
+      <path d="M108 88 L130 78 L148 80 L155 88 L148 96 L128 96 Z" fill="#f1f5f9"/>
+
+      {/* TANK */}
+      <path d="M108 84 Q118 74 132 74 L142 76 L138 86 L110 88 Z" fill="#dde3ea"/>
+
+      {/* SEAT */}
+      <path d="M90 82 L108 80 L108 88 L88 90 Z" fill="#b0bec5"/>
+      <path d="M91 83 Q99 78 107 81 L107 85 Q99 82 92 86 Z" fill="rgba(255,255,255,.12)"/>
+
+      {/* EXHAUST PIPE */}
+      <path d="M88 96 L72 106 L60 112" stroke="#6b7280" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <ellipse cx="59" cy="113" rx="4" ry="3" fill="#4b5563" stroke="#374151" strokeWidth="1"/>
+
+      {/* HANDLEBARS */}
+      <line x1="148" y1="62" x2="165" y2="54" stroke="#94a3b8" strokeWidth="2.5" strokeLinecap="round"/>
+      <line x1="165" y1="54" x2="175" y2="59" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round"/>
+
+      {/* HEADLIGHT */}
+      <path d="M155 68 Q160 58 168 60 L167 72 L157 74 Z" fill="rgba(180,220,255,.35)" stroke="rgba(255,255,255,.25)" strokeWidth=".8"/>
+      <ellipse cx="164" cy="67" rx="6" ry="5" fill="#F6D365" opacity=".9"/>
+      <ellipse cx="164" cy="66" rx="3" ry="2.5" fill="#fff" opacity=".5"/>
+
+      {/* TAIL LIGHT */}
+      <rect x="74" y="76" width="9" height="5" rx="1.5" fill="#F6D365" opacity=".7"/>
     </svg>
   </div>
 );
@@ -229,45 +267,50 @@ const TileBici = () => (
   </div>
 );
 
-/* VIAJERO — valija + avión */
+/* VIAJERO — playa, palmeras y atardecer anaranjado */
 const TileViajero = () => (
-  <div style={tileStyles.base('linear-gradient(155deg, #1565C0 0%, #0D47A1 55%, #0277BD 100%)')}>
-    <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 75% 15%, rgba(246,211,101,.18), transparent 45%)' }}/>
+  <div style={tileStyles.base('linear-gradient(180deg, #FFB347 0%, #FF7043 48%, #2196A6 48%, #1565C0 100%)')}>
+    {/* sol */}
+    <div style={{ position:'absolute', top: 14, left: '50%', transform:'translateX(-50%)', width: 52, height: 52, borderRadius: '50%', background:'radial-gradient(circle, #fff9e6, #FFD54F 55%, transparent 72%)' }}/>
+    {/* rayos del sol */}
     <svg viewBox="0 0 220 140" style={{ position:'absolute', inset:0, width:'100%', height:'100%' }}>
-      {/* clouds */}
-      <ellipse cx="38" cy="28" rx="22" ry="9" fill="rgba(255,255,255,.16)"/>
-      <ellipse cx="52" cy="22" rx="15" ry="8" fill="rgba(255,255,255,.12)"/>
-      <ellipse cx="175" cy="18" rx="18" ry="8" fill="rgba(255,255,255,.11)"/>
-      <ellipse cx="190" cy="13" rx="13" ry="6" fill="rgba(255,255,255,.09)"/>
-      {/* flight arc */}
-      <path d="M28 108 Q110 22 192 48" stroke="rgba(246,211,101,.45)" strokeWidth="1.5" fill="none" strokeDasharray="5 4"/>
-      {/* plane */}
-      <g transform="translate(150,36) rotate(-28)">
-        <path d="M0 0 L34 -3 L42 -7 L52 -7 L45 0 L52 7 L42 7 L34 3 L0 0 Z" fill="#ffffff"/>
-        <path d="M14 -1 L8 -11 L17 -9 Z" fill="#e8edf2"/>
-        <path d="M14 1 L8 11 L17 9 Z" fill="#e8edf2"/>
-        <rect x="38" y="-2" width="8" height="4" rx="1" fill="#F6D365"/>
+      {/* reflejo en el agua */}
+      <path d="M75 75 Q110 68 145 75" stroke="rgba(255,255,255,.35)" strokeWidth="2" fill="none"/>
+      <path d="M85 82 Q110 76 135 82" stroke="rgba(255,255,255,.25)" strokeWidth="1.5" fill="none"/>
+
+      {/* olas */}
+      <path d="M0 72 Q28 66 55 72 T110 72 T165 72 T220 72" stroke="rgba(255,255,255,.55)" strokeWidth="1.8" fill="none"/>
+      <path d="M0 82 Q28 76 55 82 T110 82 T165 82 T220 82" stroke="rgba(255,255,255,.35)" strokeWidth="1.4" fill="none"/>
+      <path d="M0 92 Q28 86 55 92 T110 92 T165 92 T220 92" stroke="rgba(255,255,255,.2)" strokeWidth="1.2" fill="none"/>
+
+      {/* PALMERA IZQUIERDA — tronco */}
+      <path d="M22 140 Q24 108 32 82" stroke="#1c2a1c" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      {/* palmera izq — hojas */}
+      <path d="M32 82 Q12 70 2 76" stroke="#1b5e20" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M32 82 Q18 62 8 56" stroke="#2e7d32" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M32 82 Q36 60 50 54" stroke="#388e3c" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M32 82 Q44 70 58 72" stroke="#2e7d32" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* cocos */}
+      <circle cx="30" cy="85" r="4" fill="#795548"/>
+      <circle cx="36" cy="82" r="3.5" fill="#6d4c41"/>
+
+      {/* PALMERA DERECHA — tronco */}
+      <path d="M196 140 Q194 104 188 78" stroke="#1c2a1c" strokeWidth="5" fill="none" strokeLinecap="round"/>
+      {/* palmera der — hojas */}
+      <path d="M188 78 Q206 64 220 70" stroke="#1b5e20" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+      <path d="M188 78 Q200 56 214 50" stroke="#2e7d32" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M188 78 Q178 56 166 52" stroke="#388e3c" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      <path d="M188 78 Q174 68 160 72" stroke="#2e7d32" strokeWidth="3" fill="none" strokeLinecap="round"/>
+      {/* cocos */}
+      <circle cx="190" cy="81" r="4" fill="#795548"/>
+      <circle cx="185" cy="79" r="3.5" fill="#6d4c41"/>
+
+      {/* AVIÓN */}
+      <g transform="translate(118,34) rotate(-14)">
+        <path d="M0 0 L38 -3 L46 -7 L56 -7 L49 0 L56 7 L46 7 L38 3 L0 0 Z" fill="#fff" opacity=".92"/>
+        <path d="M13 -1 L7 -11 L16 -9 Z" fill="#f5f5f5"/>
+        <path d="M13 1 L7 11 L16 9 Z" fill="#f5f5f5"/>
       </g>
-      {/* suitcase body */}
-      <rect x="74" y="82" width="72" height="50" rx="7" fill="#f0f4f8"/>
-      <rect x="74" y="82" width="72" height="50" rx="7" fill="none" stroke="rgba(21,101,192,.25)" strokeWidth="1.5"/>
-      {/* handle */}
-      <path d="M94 82 L94 73 Q94 68 110 68 Q126 68 126 73 L126 82" fill="none" stroke="#d4dce8" strokeWidth="3" strokeLinecap="round"/>
-      {/* stripe */}
-      <line x1="74" y1="107" x2="146" y2="107" stroke="rgba(21,101,192,.18)" strokeWidth="2"/>
-      <line x1="110" y1="82" x2="110" y2="132" stroke="rgba(21,101,192,.18)" strokeWidth="2"/>
-      {/* clasp */}
-      <rect x="102" y="103" width="16" height="8" rx="3" fill="#1565C0"/>
-      <circle cx="110" cy="107" r="2" fill="#F6D365"/>
-      {/* wheels */}
-      <circle cx="86" cy="132" r="5" fill="#aab4c4"/>
-      <circle cx="134" cy="132" r="5" fill="#aab4c4"/>
-      {/* passport */}
-      <rect x="152" y="96" width="30" height="38" rx="4" fill="#1565C0"/>
-      <rect x="156" y="100" width="22" height="14" rx="2" fill="rgba(255,255,255,.18)"/>
-      <line x1="156" y1="120" x2="178" y2="120" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
-      <line x1="156" y1="124" x2="174" y2="124" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
-      <line x1="156" y1="128" x2="170" y2="128" stroke="rgba(255,255,255,.28)" strokeWidth="1.5"/>
     </svg>
   </div>
 );

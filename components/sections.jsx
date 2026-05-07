@@ -29,7 +29,7 @@ const SectionTitle = ({ eyebrow, title, sub, align = 'left' }) => (
 /* ---------- Aseguradoras strip ---------- */
 
 const Aseguradoras = () => (
-  <section className="section-pad" style={{ padding: '52px 0', background: '#fff', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+  <section className="section-pad" style={{ padding: '52px 0', background: 'var(--bg-2)' }}>
     <Container className="container-pad">
       <div className="aseg-row" style={{ display: 'grid', gridTemplateColumns: 'minmax(220px, 280px) 1fr', gap: 40, alignItems: 'center' }}>
         <div>
@@ -77,7 +77,7 @@ const ComoFunciona = () => {
     { n: '03', t: 'Te paso la mejor opción', d: 'Te respondo por WhatsApp con propuesta clara: precio + cobertura.' },
   ];
   return (
-    <section id="como-funciona" className="section-pad" style={{ padding: '88px 0' }}>
+    <section id="como-funciona" className="section-pad" style={{ padding: '88px 0', background: '#fff' }}>
       <Container className="container-pad">
         <SectionTitle eyebrow="Cómo funciona" title={<span>Tres pasos. <em style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Sin vueltas.</em></span>} />
         <div className="three-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
@@ -194,7 +194,7 @@ const Testimonios = () => {
   ];
 
   return (
-    <section id="testimonios" className="section-pad" style={{ padding: '88px 0' }}>
+    <section id="testimonios" className="section-pad" style={{ padding: '88px 0', background: 'var(--bg-2)' }}>
       <Container className="container-pad">
         <SectionTitle
           eyebrow="Testimonios"
@@ -242,7 +242,7 @@ const Consejos = () => {
     { t: 'Asistencia al viajero por edad', d: 'A partir de los 70 años algunas compañías cobran extra. Cotizá con todas las opciones.' },
   ];
   return (
-    <section id="consejos" className="section-pad" style={{ padding: '88px 0', background: '#fff', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+    <section id="consejos" className="section-pad" style={{ padding: '88px 0', background: '#fff' }}>
       <Container className="container-pad">
         <SectionTitle eyebrow="Consejos del productor" title="Lo que conviene saber antes de cotizar" />
         <div className="tips-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
@@ -293,7 +293,7 @@ const FAQItem = ({ q, a, defaultOpen }) => {
 };
 
 const FAQ = () => (
-  <section id="faq" className="section-pad" style={{ padding: '88px 0' }}>
+  <section id="faq" className="section-pad" style={{ padding: '88px 0', background: 'var(--bg-2)' }}>
     <Container className="container-pad">
       <div className="faq-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60, alignItems: 'start' }}>
         <SectionTitle eyebrow="Preguntas" title="Lo que más me preguntan" />
