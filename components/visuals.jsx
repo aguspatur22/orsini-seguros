@@ -105,7 +105,7 @@ const TileAuto = () => (
 
 /* MOTO — sportbike realista, fondo oscuro para contraste */
 const TileMoto = () => (
-  <div style={tileStyles.base('linear-gradient(180deg, #00695C 0%, #00897B 100%)')}>
+  <div style={tileStyles.base('linear-gradient(180deg, #6A1B9A 0%, #8E24AA 100%)')}>
     <div style={{ position:'absolute', inset:0, background:'radial-gradient(ellipse at 72% 18%, rgba(246,211,101,.22), transparent 50%)' }}/>
     <div style={tileStyles.road}/>
     <svg viewBox="0 0 220 128" style={{ position:'absolute', bottom: 10, left:'50%', transform:'translateX(-50%)', width:'86%' }}>
