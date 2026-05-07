@@ -187,10 +187,10 @@ const Calculadora = () => {
 
 const Testimonios = () => {
   const items = [
-    { n:'Marina G.', loc:'La Plata', t:'Cambié mi seguro del auto y bajé casi $40.000 por mes. Julian respondió todo en el día y me hizo el trámite sin que mueva un dedo.', tipo:'Auto · Renault Sandero' },
-    { n:'Pablo R.', loc:'Berisso', t:'Tenía la moto sin asegurar hace años. Me pasó tres opciones, elegí una y al otro día ya tenía la póliza. Súper claro todo.', tipo:'Moto · Honda Wave' },
-    { n:'Sofía M.', loc:'Ensenada', t:'Asesoramiento real, no un call center. Me explicó la diferencia entre todo riesgo y terceros completo y elegí lo que me servía.', tipo:'Auto · VW Gol Trend' },
-    { n:'Diego L.', loc:'City Bell', t:'Aseguré la casa por primera vez. Cobertura amplia y un precio mucho mejor del que esperaba. Ya recomendé a varios.', tipo:'Hogar · 95m²' },
+    { n:'Marina G.', loc:'La Plata', t:'Cambié mi seguro del auto y bajé casi $40.000 por mes. Julian respondió todo en el día y me hizo el trámite sin que mueva un dedo.', tipo:'Auto · Renault Sandero', photo:'https://randomuser.me/api/portraits/women/44.jpg' },
+    { n:'Pablo R.', loc:'Berisso', t:'Tenía la moto sin asegurar hace años. Me pasó tres opciones, elegí una y al otro día ya tenía la póliza. Súper claro todo.', tipo:'Moto · Honda Wave', photo:'https://randomuser.me/api/portraits/men/32.jpg' },
+    { n:'Sofía M.', loc:'Ensenada', t:'Asesoramiento real, no un call center. Me explicó la diferencia entre todo riesgo y terceros completo y elegí lo que me servía.', tipo:'Auto · VW Gol Trend', photo:'https://randomuser.me/api/portraits/women/68.jpg' },
+    { n:'Diego L.', loc:'City Bell', t:'Aseguré la casa por primera vez. Cobertura amplia y un precio mucho mejor del que esperaba. Ya recomendé a varios.', tipo:'Hogar · 95m²', photo:'https://randomuser.me/api/portraits/men/75.jpg' },
   ];
 
   return (
@@ -213,10 +213,11 @@ const Testimonios = () => {
                 {it.t}
               </blockquote>
               <figcaption style={{ marginTop: 18, display: 'flex', alignItems: 'center', gap: 12 }}>
-                <div style={{
-                  width: 38, height: 38, borderRadius: '50%', background: 'var(--brand)',
-                  color: '#fff', display: 'grid', placeItems: 'center', fontWeight: 700, fontSize: 14
-                }}>{it.n.split(' ').map(p => p[0]).join('')}</div>
+                <img
+                  src={it.photo}
+                  alt={it.n}
+                  style={{ width: 44, height: 44, borderRadius: '50%', objectFit: 'cover', border: '2px solid var(--line)', flexShrink: 0 }}
+                />
                 <div>
                   <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--ink)' }}>{it.n} · {it.loc}</div>
                   <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 2 }}>{it.tipo}</div>
