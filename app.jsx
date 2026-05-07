@@ -132,7 +132,7 @@ const Hero = () => {
 
             {/* Tile grid: visual cue per ramo */}
             <div className="ramo-tiles" style={{
-              marginTop: 36,
+              marginTop: 28,
               display: 'flex',
               flexWrap: 'wrap',
               gap: 10,
