@@ -325,7 +325,6 @@ const FooterContacto = () => (
               <div style={{ fontSize: 12, color: 'rgba(255,255,255,.6)', marginTop: 3 }}>Productor Asesor · Matrícula SSN 104.304</div>
             </div>
           </div>
-          <div className="footer-logo"><Logo light /></div>
           <p style={{ marginTop: 18, fontSize: 14, lineHeight: 1.6, color: 'rgba(255,255,255,.65)', maxWidth: 380 }}>
             Productor Asesor de Seguros matriculado. Comparo entre las principales compañías del país para conseguirte mejor precio y cobertura, sin costo de gestión.
           </p>
