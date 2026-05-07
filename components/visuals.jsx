@@ -85,7 +85,7 @@ const TileAuto = () => (
       </defs>
       <ellipse cx="110" cy="105" rx="92" ry="6" fill="rgba(0,0,0,.25)"/>
       <path d="M20 80 Q30 50 70 46 L150 46 Q180 48 200 78 L200 92 L20 92 Z" fill="url(#carBody)"/>
-      <path d="M62 50 L82 32 L138 32 L158 50 Z" fill="rgba(255,255,255,.55)" stroke="#FF4B99" strokeWidth="1.2"/>
+      <path d="M62 50 L82 32 L138 32 L158 50 Z" fill="rgba(255,255,255,.55)" stroke="#2896FE" strokeWidth="1.2"/>
       <line x1="110" y1="32" x2="110" y2="50" stroke="#1d7ad6" strokeWidth="1.2"/>
       <circle cx="60" cy="92" r="13" fill="#15191f"/><circle cx="60" cy="92" r="5" fill="#6b7385"/>
       <circle cx="160" cy="92" r="13" fill="#15191f"/><circle cx="160" cy="92" r="5" fill="#6b7385"/>
@@ -95,8 +95,8 @@ const TileAuto = () => (
 );
 
 const TileMoto = () => (
-  <div style={tileStyles.base(linear('#FF4B99','#d63d80'))}>
-    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 70% 30%, #F6D36588, transparent 60%)'}}/>
+  <div style={tileStyles.base(linear('#0277BD','#0288D1'))}>
+    <div style={{...tileStyles.sky, background:'radial-gradient(ellipse at 70% 30%, #ffffff44, transparent 60%)'}}/>
     <div style={tileStyles.road}/>
     <svg viewBox="0 0 220 130" style={{ position:'absolute', bottom: 12, left:'50%', transform:'translateX(-50%)', width:'78%' }}>
       <ellipse cx="110" cy="115" rx="90" ry="5" fill="rgba(0,0,0,.25)"/>
@@ -131,7 +131,7 @@ const TileHogar = () => (
     <svg viewBox="0 0 220 140" style={{ position:'absolute', bottom: 0, left:'50%', transform:'translateX(-50%)', width:'92%' }}>
       <rect x="0" y="120" width="220" height="20" fill="#0e3a66"/>
       <path d="M40 70 L110 25 L180 70 L180 120 L40 120 Z" fill="#f6f3ec"/>
-      <path d="M30 72 L110 18 L190 72" stroke="#FF4B99" strokeWidth="3" fill="none" strokeLinejoin="round"/>
+      <path d="M30 72 L110 18 L190 72" stroke="#2896FE" strokeWidth="3" fill="none" strokeLinejoin="round"/>
       <rect x="95" y="85" width="30" height="35" fill="#1d7ad6"/>
       <rect x="55" y="80" width="22" height="22" fill="#F6D365"/>
       <rect x="143" y="80" width="22" height="22" fill="#F6D365"/>

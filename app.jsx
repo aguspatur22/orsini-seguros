@@ -19,7 +19,7 @@ const Nav = () => {
   return (
     <header style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: scrolled ? 'rgba(255,247,236,0.92)' : 'transparent',
+      background: scrolled ? 'rgba(238,244,255,0.95)' : 'transparent',
       backdropFilter: scrolled ? 'saturate(140%) blur(10px)' : 'none',
       borderBottom: scrolled ? '1px solid var(--line)' : '1px solid transparent',
       transition: 'background .18s, border-color .18s',
@@ -99,8 +99,8 @@ const Hero = () => {
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background:
-          'radial-gradient(800px 400px at 80% -10%, rgba(246,211,101,.10), transparent 60%),' +
-          'radial-gradient(700px 500px at 0% 30%, rgba(40,150,254,.07), transparent 60%)'
+          'radial-gradient(800px 400px at 80% -10%, rgba(21,101,192,.08), transparent 60%),' +
+          'radial-gradient(700px 500px at 0% 30%, rgba(40,150,254,.06), transparent 60%)'
       }}/>
       <Container style={{ position: 'relative' }} className="container-pad">
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 580px)', gap: 48, alignItems: 'start', paddingTop: 40 }}>
@@ -121,7 +121,7 @@ const Hero = () => {
               lineHeight: 0.98, letterSpacing: '-0.025em', color: 'var(--ink)',
               textWrap: 'balance'
             }}>
-              Cotizá tu seguro y <em style={{ fontStyle: 'italic', color: 'var(--accent)' }}>pagá menos</em>.
+              Cotizá tu seguro y <em style={{ fontStyle: 'italic', color: 'var(--accent-2)' }}>pagá menos</em>.
             </h1>
             <p style={{
               margin: '20px 0 0', fontSize: 18, lineHeight: 1.55, color: 'var(--ink-2)',

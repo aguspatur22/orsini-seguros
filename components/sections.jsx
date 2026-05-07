@@ -207,7 +207,7 @@ const Testimonios = () => {
               borderRadius: 16, padding: 28, margin: 0
             }}>
               <svg width="28" height="22" viewBox="0 0 28 22" fill="none" style={{ marginBottom: 16 }}>
-                <path d="M0 22V12C0 5.4 4.5 0 11 0V4C7.4 4 4.4 7 4.4 11H10V22H0Z M16 22V12C16 5.4 20.5 0 27 0V4C23.4 4 20.4 7 20.4 11H26V22H16Z" fill="#FF4B99"/>
+                <path d="M0 22V12C0 5.4 4.5 0 11 0V4C7.4 4 4.4 7 4.4 11H10V22H0Z M16 22V12C16 5.4 20.5 0 27 0V4C23.4 4 20.4 7 20.4 11H26V22H16Z" fill="#2896FE"/>
               </svg>
               <blockquote style={{ margin: 0, fontSize: 17, lineHeight: 1.55, color: 'var(--ink)', fontWeight: 500, letterSpacing: '-0.005em' }}>
                 {it.t}
@@ -313,7 +313,7 @@ const FAQ = () => (
 /* ---------- Footer / Contacto ---------- */
 
 const FooterContacto = () => (
-  <footer id="contacto" style={{ background: 'var(--ink)', color: '#fff', padding: '72px 0 32px' }}>
+  <footer id="contacto" style={{ background: '#0B2347', color: '#fff', padding: '72px 0 32px' }}>
     <Container className="container-pad">
       <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 48, paddingBottom: 48, borderBottom: '1px solid rgba(255,255,255,.1)' }}>
         <div>
@@ -332,7 +332,7 @@ const FooterContacto = () => (
             onClick={() => window.open(buildWhatsAppUrl('Hola Julian, quiero hacerte una consulta.'), '_blank')}
             style={{
               marginTop: 24, height: 48, padding: '0 22px', borderRadius: 12,
-              background: 'var(--accent)', color: '#fff', border: 'none',
+              background: 'var(--accent)', color: '#0B2347', border: 'none',
               fontWeight: 700, fontSize: 14, cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 10,
             }}
