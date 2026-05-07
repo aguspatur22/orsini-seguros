@@ -314,9 +314,9 @@ const FAQ = () => (
 /* ---------- Footer / Contacto ---------- */
 
 const FooterContacto = () => (
-  <footer id="contacto" style={{ background: '#0B2347', color: '#fff', padding: '72px 0 32px' }}>
+  <footer id="contacto" style={{ background: '#0B2347', color: '#fff', padding: '40px 0 24px' }}>
     <Container className="container-pad">
-      <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 48, paddingBottom: 48, borderBottom: '1px solid rgba(255,255,255,.1)' }}>
+      <div className="footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr 1fr', gap: 40, paddingBottom: 32, borderBottom: '1px solid rgba(255,255,255,.1)' }}>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 18 }}>
             <img src="assets/julian.jpg" alt="Julian Orsini" style={{ width: 56, height: 56, borderRadius: '50%', objectFit: 'cover', border: '2px solid rgba(255,255,255,.15)' }}/>
@@ -331,7 +331,7 @@ const FooterContacto = () => (
           <button
             onClick={() => window.open(buildWhatsAppUrl('Hola Julian, quiero hacerte una consulta.'), '_blank')}
             style={{
-              marginTop: 24, height: 48, padding: '0 22px', borderRadius: 12,
+              marginTop: 16, height: 44, padding: '0 18px', borderRadius: 12,
               background: '#25D366', color: '#fff', border: 'none',
               fontWeight: 700, fontSize: 14, cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 10,
