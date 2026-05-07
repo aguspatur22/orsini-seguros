@@ -333,7 +333,7 @@ const FooterContacto = () => (
             onClick={() => window.open(buildWhatsAppUrl('Hola Julian, quiero hacerte una consulta.'), '_blank')}
             style={{
               marginTop: 24, height: 48, padding: '0 22px', borderRadius: 12,
-              background: 'var(--accent)', color: '#0B2347', border: 'none',
+              background: '#25D366', color: '#fff', border: 'none',
               fontWeight: 700, fontSize: 14, cursor: 'pointer',
               display: 'inline-flex', alignItems: 'center', gap: 10,
             }}
