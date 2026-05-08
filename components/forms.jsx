@@ -436,7 +436,10 @@ Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v
   };
 
   return (
-    <div>
+    <FormShell onSubmit={(e) => {
+      e.preventDefault();
+      enviar();
+    }}>
       <FormHeader
         title="Asistencia al viajero"
         sub="Completá los datos del viaje y te paso la mejor opción."
@@ -488,7 +491,7 @@ Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v
         </Field>
       </div>
       <SubmitRow />
-    </div>
+    </FormShell>
   );
 };
 
