@@ -174,7 +174,7 @@ const Hero = () => {
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  Productor matriculado SSN 104.304
+                  Productor MAT. SSN 104.304
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
