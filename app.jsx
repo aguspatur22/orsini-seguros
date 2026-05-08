@@ -162,10 +162,10 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Trust line + foto mobile */}
-            <div style={{ marginTop: 32, display: 'flex', alignItems: 'flex-start', gap: 16 }}>
+            {/* Trust line */}
+            <div style={{ marginTop: 32 }}>
               <div className="hero-trust" style={{
-                flex: 1, display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap',
+                display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap',
                 fontSize: 13, color: 'var(--muted)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -181,12 +181,13 @@ const Hero = () => {
                   Hablás siempre conmigo
                 </div>
               </div>
-              <img className="julian-photo-mobile" src="assets/julian.jpg" alt="Julián Orsini"
-                style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', flexShrink: 0 }} />
             </div>
+            {/* Foto mobile: centrada debajo del trust line */}
+            <img className="julian-photo-mobile" src="assets/julian.jpg" alt="Julián Orsini"
+              style={{ width: 110, height: 110, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 24, marginLeft: 'auto', marginRight: 'auto' }} />
             {/* Foto desktop: debajo del trust line */}
             <img className="julian-photo-desktop" src="assets/julian.jpg" alt="Julián Orsini"
-              style={{ width: 180, height: 180, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 28 }} />
+              style={{ width: 320, height: 320, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 32, marginLeft: 'auto', marginRight: 'auto' }} />
           </div>
 
           {/* Right: form card */}
