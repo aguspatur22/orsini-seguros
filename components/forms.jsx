@@ -183,7 +183,7 @@ ${v.pagaActual ? `Pago actual: $${v.pagaActual}` : ''}`;
     <FormShell onSubmit={submit}>
       <FormHeader
         title={tipo === 'auto' ? 'Cotizá tu seguro de auto' : 'Cotizá tu seguro de moto'}
-        sub="Completá una sola vez. Comparo entre Federación Patronal, Mercantil Andina y Rivadavia."
+        sub="Completá una sola vez. Cotizo entre las compañías del mercado."
       />
 
       <Field label="Localidad" error={errs.localidad}>

@@ -23,7 +23,7 @@
       --brand: #1565C0;
       --brand-2: #0D47A1;
       --accent: #2896FE;
-      --accent-2: #F6D365;
+      --accent-2: #5EACFF;
       --navy: #0B2347;
       --good: #1f7a4d;
       --bad: #b3261e;
@@ -45,6 +45,9 @@
     input, select { font-family: inherit; }
     img { max-width: 100%; display: block; }
     #root { min-height: 100vh; }
+
+    .julian-photo-mobile { display: none; }
+    .julian-photo-desktop { display: block; }
 
     /* ============ Responsive overrides ============ */
     @media (max-width: 960px) {
@@ -75,6 +78,8 @@
       .ramo-tiles { display: grid !important; grid-template-columns: repeat(5, 1fr) !important; gap: 5px !important; }
       .ramo-tiles > button { width: 100% !important; flex: none !important; }
       .hero-trust { flex-direction: column !important; gap: 8px !important; align-items: flex-start !important; }
+      .julian-photo-mobile { display: block !important; }
+      .julian-photo-desktop { display: none !important; }
       .aseg-grid { grid-template-columns: 1fr !important; }
       .form-grid { grid-template-columns: 1fr !important; }
       .form-grid > * { grid-column: 1 / -1 !important; }

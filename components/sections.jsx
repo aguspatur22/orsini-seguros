@@ -73,7 +73,7 @@ const Aseguradoras = () => (
 const ComoFunciona = () => {
   const steps = [
     { n: '01', t: 'Completás el formulario', d: 'En menos de un minuto. Te pido sólo lo necesario para cotizar bien.' },
-    { n: '02', t: 'Comparo entre compañías', d: 'Federación Patronal, Mercantil Andina y Rivadavia. Sin costo para vos.' },
+    { n: '02', t: 'Comparo entre compañías', d: 'Analizo las opciones del mercado para conseguirte el mejor precio y cobertura. Sin costo para vos.' },
     { n: '03', t: 'Te paso la mejor opción', d: 'Te respondo por WhatsApp con propuesta clara: precio + cobertura.' },
   ];
   return (
@@ -97,91 +97,13 @@ const ComoFunciona = () => {
   );
 };
 
-/* ---------- Calculadora de ahorro estimado ---------- */
+/* ---------- Banner ---------- */
 
-const Calculadora = () => {
-  const [pago, setPago] = React.useState(100000);
-  const ahorroPct = 0.32;
-  const nuevoPago = Math.round(pago * (1 - ahorroPct));
-  const ahorroMensual = pago - nuevoPago;
-  const ahorroAnual = ahorroMensual * 12;
-  const fmt = (n) => new Intl.NumberFormat('es-AR', { style: 'currency', currency: 'ARS', maximumFractionDigits: 0 }).format(n);
-
-  return (
-    <section id="ahorro" className="section-pad" style={{ padding: '88px 0', background: 'var(--brand)', color: '#fff', position: 'relative', overflow: 'hidden' }}>
-      <div aria-hidden="true" style={{
-        position: 'absolute', inset: 0, opacity: .07,
-        backgroundImage: 'radial-gradient(circle at 1px 1px, #fff 1px, transparent 0)',
-        backgroundSize: '24px 24px',
-      }}/>
-      <Container style={{ position: 'relative' }} className="container-pad">
-        <div className="calc-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
-          <div>
-            <div style={{ fontSize: 12, fontWeight: 700, letterSpacing: '.12em', textTransform: 'uppercase', color: 'var(--accent-2)', marginBottom: 12 }}>
-              Calculadora de ahorro
-            </div>
-            <h2 className="serif" style={{ margin: 0, fontSize: 'clamp(34px, 4vw, 48px)', lineHeight: 1.05, letterSpacing: '-0.02em' }}>
-              ¿Cuánto podrías estar ahorrando hoy?
-            </h2>
-            <p style={{ margin: '16px 0 0', fontSize: 16, lineHeight: 1.6, color: 'rgba(255,255,255,.75)' }}>
-              Mové el deslizador con tu cuota actual. Esta es una estimación basada en lo que ahorran mis clientes al cambiarse de compañía.
-            </p>
-
-            <div style={{ marginTop: 32 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 8 }}>
-                <span style={{ fontSize: 13, color: 'rgba(255,255,255,.7)' }}>Lo que pagás hoy por mes</span>
-                <span style={{ fontSize: 22, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{fmt(pago)}</span>
-              </div>
-              <input
-                type="range" min="20000" max="500000" step="5000" value={pago}
-                onChange={(e) => setPago(parseInt(e.target.value))}
-                style={{ width: '100%', accentColor: 'var(--accent-2)' }}
-              />
-              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, color: 'rgba(255,255,255,.5)', marginTop: 4 }}>
-                <span>$20.000</span><span>$500.000</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="calc-card" style={{
-            background: 'rgba(255,255,255,.06)', border: '1px solid rgba(255,255,255,.15)',
-            borderRadius: 18, padding: 32, backdropFilter: 'blur(8px)',
-          }}>
-            <div style={{ fontSize: 13, color: 'rgba(255,255,255,.65)', marginBottom: 6 }}>Tu nueva cuota estimada</div>
-            <div className="serif calc-amount" style={{ fontSize: 64, lineHeight: 1, letterSpacing: '-0.03em', color: 'var(--accent-2)' }}>
-              {fmt(nuevoPago)}
-            </div>
-            <div style={{ height: 1, background: 'rgba(255,255,255,.15)', margin: '24px 0' }}/>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
-              <div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,.6)' }}>Ahorro por mes</div>
-                <div style={{ fontSize: 22, fontWeight: 700, marginTop: 4, fontVariantNumeric: 'tabular-nums' }}>{fmt(ahorroMensual)}</div>
-              </div>
-              <div>
-                <div style={{ fontSize: 12, color: 'rgba(255,255,255,.6)' }}>Ahorro por año</div>
-                <div style={{ fontSize: 22, fontWeight: 700, marginTop: 4, color: 'var(--accent-2)', fontVariantNumeric: 'tabular-nums' }}>{fmt(ahorroAnual)}</div>
-              </div>
-            </div>
-            <button
-              onClick={() => {
-                const msg = `Hola Julian! Vi la calculadora de ahorro y quiero cotizar mi seguro. Hoy pago ${fmt(pago)} por mes. ¿Me podés pasar opciones?`;
-                window.open(buildWhatsAppUrl(msg), '_blank');
-              }}
-              style={{
-                marginTop: 24, width: '100%', height: 50, borderRadius: 12,
-                background: 'var(--accent-2)', color: 'var(--ink)', border: 'none',
-                fontWeight: 800, fontSize: 14, cursor: 'pointer', letterSpacing: '.01em'
-              }}
-            >Quiero ahorrar →</button>
-            <p style={{ fontSize: 11, color: 'rgba(255,255,255,.5)', textAlign: 'center', margin: '12px 0 0' }}>
-              Ahorro promedio observado: 32%. Cotización real sin compromiso.
-            </p>
-          </div>
-        </div>
-      </Container>
-    </section>
-  );
-};
+const BannerOrsini = () => (
+  <section id="ahorro" style={{ lineHeight: 0 }}>
+    <img src="assets/orsini-banner.jpeg" alt="Orsini Seguros" style={{ width: '100%', height: 'auto', display: 'block' }} />
+  </section>
+);
 
 /* ---------- Testimonios ---------- */
 

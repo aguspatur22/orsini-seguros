@@ -123,13 +123,6 @@ const Hero = () => {
             }}>
               Cotizá tu seguro y <em style={{ fontStyle: 'italic', color: 'var(--accent-2)' }}>pagá menos</em>.
             </h1>
-            <p style={{
-              margin: '20px 0 0', fontSize: 18, lineHeight: 1.55, color: 'var(--ink-2)',
-              maxWidth: 520
-            }}>
-              Comparo entre Federación Patronal, Mercantil Andina y Rivadavia para conseguirte mejor precio y cobertura. Decime cuánto pagás y te digo si puedo mejorarlo.
-            </p>
-
             {/* Tile grid: visual cue per ramo */}
             <div className="ramo-tiles" style={{
               marginTop: 28,
@@ -163,24 +156,31 @@ const Hero = () => {
               ))}
             </div>
 
-            {/* Trust line */}
-            <div className="hero-trust" style={{
-              marginTop: 32, display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap',
-              fontSize: 13, color: 'var(--muted)'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                Sin costo de gestión
+            {/* Trust line + foto mobile */}
+            <div style={{ marginTop: 32, display: 'flex', alignItems: 'flex-start', gap: 16 }}>
+              <div className="hero-trust" style={{
+                flex: 1, display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap',
+                fontSize: 13, color: 'var(--muted)'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Sin costo de gestión
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Productor matriculado SSN 104.304
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Hablás siempre conmigo
+                </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                Productor matriculado SSN 104.304
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4 10-10" stroke="var(--good)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                Hablás siempre conmigo
-              </div>
+              <img className="julian-photo-mobile" src="assets/julian.jpg" alt="Julián Orsini"
+                style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', flexShrink: 0 }} />
             </div>
+            {/* Foto desktop: debajo del trust line */}
+            <img className="julian-photo-desktop" src="assets/julian.jpg" alt="Julián Orsini"
+              style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 20 }} />
           </div>
 
           {/* Right: form card */}
@@ -223,7 +223,7 @@ const App = () => (
     <Hero />
     <Aseguradoras />
     <ComoFunciona />
-    <Calculadora />
+    <BannerOrsini />
     <Testimonios />
     <Consejos />
     <FAQ />
