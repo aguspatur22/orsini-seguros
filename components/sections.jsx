@@ -237,10 +237,9 @@ const Consejos = () => {
   const tips = [
     { t: 'Renovás en el mismo mes', d: 'No esperes a que se venza la póliza. Cotizá 30 días antes para tener margen.' },
     { t: 'Compará cobertura, no sólo precio', d: 'La cuota más baja a veces deja afuera granizo o RC linderos. Mirá la letra chica.' },
-    { t: 'Si tenés cochera, decilo', d: 'Guardar el vehículo en cochera puede bajar la prima entre 5% y 15% según la compañía.' },
     { t: 'Patente y datos del titular', d: 'Tener los datos a mano acelera la cotización. Patente, DNI, modelo y año exactos.' },
     { t: 'Disyuntor en el hogar', d: 'Casas con disyuntor diferencial cotizan mejor en muchas compañías. Si lo tenés, decilo.' },
-    { t: 'Asistencia al viajero por edad', d: 'A partir de los 70 años algunas compañías cobran extra. Cotizá con todas las opciones.' },
+    { t: 'Asistencia al viajero por edad', d: 'Es importante informar preexistencias antes del momento del viaje y detallar la edad al momento del viaje.' },
   ];
   return (
     <section id="consejos" className="section-pad" style={{ padding: '88px 0', background: '#fff' }}>
@@ -299,9 +298,9 @@ const FAQ = () => (
       <div className="faq-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: 60, alignItems: 'start' }}>
         <SectionTitle eyebrow="Preguntas" title="Lo que más me preguntan" />
         <div>
-          <FAQItem defaultOpen q="¿Cuánto cuesta tu asesoramiento?" a="Nada. Mi trabajo lo paga la compañía aseguradora cuando contratás la póliza. Para vos es gratis y siempre vas a pagar lo mismo que cotizando directo, con la diferencia de tener un asesor personal." />
-          <FAQItem q="¿Cómo se hace el cambio si ya tengo seguro?" a="Me mandás los datos, cotizo, elegimos juntos la mejor opción y yo me encargo de gestionar la baja con tu compañía actual y emitir la nueva póliza. No tenés que hacer nada." />
-          <FAQItem q="¿En qué zonas trabajás?" a="Estoy en La Plata pero trabajo con clientes en toda la provincia de Buenos Aires y CABA. Todo se hace por WhatsApp y mail, no necesitás ir a ningún lado." />
+          <FAQItem defaultOpen q="¿Cuánto cuesta tu asesoramiento?" a="Nada. Mi trabajo lo paga la compañía aseguradora cuando contratás la póliza. Para vos es gratis. Mi trabajo es que tengas una cobertura acorde a tu bien y a lo que necesitás, sin pagar de más." />
+          <FAQItem q="¿Cómo se hace el cambio si ya tengo seguro?" a="Me mandás los datos, cotizo y elegimos juntos la mejor opción. Una vez realizado, te explico cómo dar de baja tu póliza actual y realizar la emisión con nosotros." />
+          <FAQItem q="¿En qué zonas trabajás?" a={<>Somos de la ciudad de La Plata, pero hoy todo el manejo del seguro se hace de manera digital: emisión de póliza, pagos, modificaciones, denuncias y seguimiento.<br /><br />Más allá de la distancia, lo importante es que tengas una persona que te responda y te acompañe cuando lo necesites.</>} />
           <FAQItem q="¿Qué pasa si tengo un siniestro?" a="Me llamás directamente a mí. Te acompaño en toda la gestión: denuncia, peritaje, taller. Vas a hablar con una persona, no con un 0800." />
           <FAQItem q="¿Qué métodos de pago aceptan las compañías?" a="Débito automático con tarjeta o CBU. Algunas aceptan también efectivo o transferencia mensual. Te paso las opciones cuando elijamos compañía." />
           <FAQItem q="¿Aseguran autos importados / 0km?" a="Sí. Cualquier vehículo patentado en Argentina. Para 0km podés contratar antes de patentar usando el número de chasis." />
