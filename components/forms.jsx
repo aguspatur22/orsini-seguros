@@ -423,7 +423,8 @@ const FormViajero = () => {
     setV(s => ({ ...s, edades }));
   };
 
-  const enviar = () => {
+  const submit = (e) => {
+    e.preventDefault();
     const msg =
 `Hola Julián, quiero cotizar ASISTENCIA AL VIAJERO.
 
@@ -436,19 +437,12 @@ Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v
   };
 
   return (
-    <FormShell onSubmit={(e) => {
-      e.preventDefault();
-      enviar();
-    }}>
+    <div>
       <FormHeader
         title="Asistencia al viajero"
         sub="Completá los datos del viaje y te paso la mejor opción."
       />
-
-      <div className="viajero-trip-grid" style={{
-        display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14,
-        marginBottom: 14,
-      }}>
+      <FormShell onSubmit={submit}>
         <Field label="Origen">
           <Input value={v.origen} onChange={(e) => set('origen', e.target.value)} />
         </Field>
@@ -480,18 +474,15 @@ Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v
             ))}
           </div>
         </Field>
-      </div>
-
-      <div className="form-contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 18 }}>
         <Field label="Nombre y apellido">
           <Input value={v.nombre} onChange={(e) => set('nombre', e.target.value)} placeholder="Juan Pérez" />
         </Field>
         <Field label="WhatsApp" hint="Te respondo por acá">
           <Input value={v.telefono} onChange={(e) => set('telefono', e.target.value)} placeholder="221 555 5555" inputMode="tel" />
         </Field>
-      </div>
-      <SubmitRow />
-    </FormShell>
+        <SubmitRow label="Cotizar por WhatsApp" />
+      </FormShell>
+    </div>
   );
 };
 
