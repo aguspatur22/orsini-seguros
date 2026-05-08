@@ -186,7 +186,7 @@ const Hero = () => {
             </div>
             {/* Foto desktop: debajo del trust line */}
             <img className="julian-photo-desktop" src="assets/julian.jpg" alt="Julián Orsini"
-              style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 24 }} />
+              style={{ width: 180, height: 180, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 28 }} />
           </div>
 
           {/* Right: form card */}

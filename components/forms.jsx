@@ -403,16 +403,10 @@ Disyuntor: ${v.disyuntor || 'no especificado'}`;
 
 /* ---------- Asistencia al viajero ---------- */
 
-const ASISTENCIAS = [
-  { id: 'go', name: 'GO! Assistance', tag: 'Cobertura amplia · Latam y mundo', url: '#go-assistance', logo: 'assets/go-assistance-logo.png' },
-  { id: 'universal', name: 'Universal Assistance', tag: 'Líder regional · Cobertura premium', url: '#universal-assistance', logo: 'assets/universal-assistance-logo.webp' },
-  { id: 'assist', name: 'Assist Card', tag: 'Marca histórica · Atención 24/7', url: '#assist-card', logo: 'assets/assist-card-logo.png' },
-];
-
 const FormViajero = () => {
   const [v, setV] = React.useState({
-    nombre:'', telefono:'', email:'',
-    origen:'Argentina', destino:'', desde:'', hasta:'', pasajeros: 1, edades: ['']
+    nombre: '', telefono: '',
+    origen: 'Argentina', destino: '', desde: '', hasta: '', pasajeros: 1, edades: ['']
   });
   const set = (k, val) => setV(s => ({ ...s, [k]: val }));
 
@@ -425,20 +419,32 @@ const FormViajero = () => {
   };
   const setEdad = (i, val) => {
     const edades = [...v.edades];
-    edades[i] = val.replace(/[^\d]/g,'');
+    edades[i] = val.replace(/[^\d]/g, '');
     setV(s => ({ ...s, edades }));
+  };
+
+  const enviar = () => {
+    const msg =
+`Hola Julián, quiero cotizar ASISTENCIA AL VIAJERO.
+
+Origen: ${v.origen}
+Destino: ${v.destino || '-'}
+Fechas: ${v.desde || '-'} al ${v.hasta || '-'}
+Pasajeros: ${v.pasajeros}
+Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v.nombre}` : ''}${v.telefono ? `\nTeléfono: ${v.telefono}` : ''}`;
+    window.open(buildWhatsAppUrl(msg), '_blank');
   };
 
   return (
     <div>
       <FormHeader
         title="Asistencia al viajero"
-        sub="Elegí una compañía y cotizá al instante. O dejame tus datos y te paso la mejor opción."
+        sub="Completá los datos del viaje y te paso la mejor opción."
       />
 
       <div className="viajero-trip-grid" style={{
         display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 14,
-        marginBottom: 18,
+        marginBottom: 14,
       }}>
         <Field label="Origen">
           <Input value={v.origen} onChange={(e) => set('origen', e.target.value)} />
@@ -457,14 +463,14 @@ const FormViajero = () => {
             {[1,2,3,4,5,6,7,8,9,10].map(n => <option key={n} value={n}>{n}</option>)}
           </Select>
         </Field>
-        <Field label="Edades de pasajeros" hint="Edad al momento del viaje">
+        <Field label="Edades" hint="Edad al momento del viaje">
           <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
             {v.edades.map((ed, i) => (
               <Input
                 key={i}
                 value={ed}
                 onChange={(e) => setEdad(i, e.target.value)}
-                placeholder={`P${i+1}`}
+                placeholder={`P${i + 1}`}
                 style={{ width: 56, textAlign: 'center', padding: '0 6px' }}
                 inputMode="numeric"
               />
@@ -473,72 +479,32 @@ const FormViajero = () => {
         </Field>
       </div>
 
-      <div className="viajero-cards" style={{ display: 'flex', flexDirection: 'column', gap: 10, marginBottom: 14 }}>
-        {ASISTENCIAS.map((a) => (
-          <a key={a.id} href={a.url} target="_blank" rel="noopener" className="viajero-card" style={{
-            display: 'flex', alignItems: 'center', gap: 14, minWidth: 0,
-            textDecoration: 'none', color: 'inherit',
-            background: '#fff', border: '1px solid var(--line)', borderRadius: 12,
-            padding: 14, transition: 'transform .15s, box-shadow .15s, border-color .15s',
-          }}
-          onMouseEnter={(e) => { e.currentTarget.style.transform = 'translateY(-1px)'; e.currentTarget.style.boxShadow = 'var(--shadow)'; e.currentTarget.style.borderColor = 'var(--brand)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.transform = 'none'; e.currentTarget.style.boxShadow = 'none'; e.currentTarget.style.borderColor = 'var(--line)'; }}
-          >
-            <div style={{
-              width: 44, height: 44, borderRadius: 10, background: '#f0f4f8',
-              border: '1px solid var(--line)',
-              display: 'grid', placeItems: 'center', flex: '0 0 auto',
-              overflow: 'hidden', padding: 5,
-            }}>
-              <img src={a.logo} alt={a.name} style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
-            </div>
-            <div className="viajero-card-text" style={{ flex: 1, minWidth: 0, lineHeight: 1.2 }}>
-              <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{a.name}</div>
-              <div className="viajero-card-tag" style={{ fontSize: 11, color: 'var(--muted)', marginTop: 3, letterSpacing: '.04em', textTransform: 'uppercase', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{a.tag}</div>
-            </div>
-            <div className="viajero-card-cta" style={{
-              flex: '0 0 auto', height: 36, padding: '0 14px', borderRadius: 9,
-              background: 'var(--brand)', color: '#fff',
-              display: 'inline-flex', alignItems: 'center', fontWeight: 700, fontSize: 12,
-            }}>
-              Cotizar →
-            </div>
-          </a>
-        ))}
+      <div className="form-contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 14, marginBottom: 18 }}>
+        <Field label="Nombre y apellido">
+          <Input value={v.nombre} onChange={(e) => set('nombre', e.target.value)} placeholder="Juan Pérez" />
+        </Field>
+        <Field label="WhatsApp" hint="Te respondo por acá">
+          <Input value={v.telefono} onChange={(e) => set('telefono', e.target.value)} placeholder="221 555 5555" inputMode="tel" />
+        </Field>
       </div>
 
-      <div style={{
-        background: 'var(--bg-2)', border: '1px solid var(--line)',
-        borderRadius: 12, padding: 16, display: 'flex',
-        alignItems: 'center', justifyContent: 'space-between', gap: 16, flexWrap: 'wrap'
-      }}>
-        <div>
-          <div style={{ fontWeight: 700, fontSize: 14, color: 'var(--ink)' }}>¿No sabés cuál elegir?</div>
-          <div style={{ fontSize: 13, color: 'var(--muted)', marginTop: 3 }}>
-            Decime tu destino y fechas, te recomiendo la mejor cobertura.
-          </div>
-        </div>
-        <button
-          type="button"
-          onClick={() => {
-            const msg =
-`Hola Julian, quiero asesoramiento para ASISTENCIA AL VIAJERO.
-
-${v.nombre ? `Nombre: ${v.nombre}\n` : ''}${v.telefono ? `Tel: ${v.telefono}\n` : ''}Origen: ${v.origen}
-Destino: ${v.destino || '-'}
-Fechas: ${v.desde || '-'} a ${v.hasta || '-'}
-Pasajeros: ${v.pasajeros}
-Edades: ${v.edades.filter(Boolean).join(', ') || '-'}`;
-            window.open(buildWhatsAppUrl(msg), '_blank');
-          }}
-          style={{
-            height: 44, padding: '0 18px', borderRadius: 10,
-            background: '#25D366', color: '#fff', border: 'none',
-            fontWeight: 700, fontSize: 13, cursor: 'pointer',
-            boxShadow: '0 4px 14px rgba(37,211,102,.3)'
-          }}
-        >Asesorame por WhatsApp</button>
-      </div>
+      <button
+        type="button"
+        onClick={enviar}
+        style={{
+          width: '100%', height: 50, borderRadius: 12,
+          background: '#25D366', color: '#fff', border: 'none',
+          fontWeight: 700, fontSize: 15, cursor: 'pointer',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+          boxShadow: '0 4px 14px rgba(37,211,102,.35)',
+        }}
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5C17.8 1.3 14.9 .1 11.9 .1 5.7 .1 .7 5.1 .7 11.3c0 2 .5 3.9 1.5 5.6L.5 23l6.3-1.6c1.6.9 3.4 1.4 5.2 1.4 6.2 0 11.2-5 11.2-11.2 0-3-1.2-5.9-3.2-8zm-8.1 17.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3.7.9.9-3.6-.2-.3a9.2 9.2 0 0 1-1.4-4.9c0-5.1 4.1-9.2 9.2-9.2 2.5 0 4.8 1 6.5 2.7s2.7 4 2.7 6.5c0 5.1-4.1 9.4-9.1 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/></svg>
+        Cotizar por WhatsApp
+      </button>
+      <p style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'center', margin: '10px 0 0' }}>
+        Te respondo personalmente con la mejor opción.
+      </p>
     </div>
   );
 };
