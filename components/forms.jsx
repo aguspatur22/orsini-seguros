@@ -487,24 +487,7 @@ Edades: ${v.edades.filter(Boolean).join(', ') || '-'}${v.nombre ? `\nNombre: ${v
           <Input value={v.telefono} onChange={(e) => set('telefono', e.target.value)} placeholder="221 555 5555" inputMode="tel" />
         </Field>
       </div>
-
-      <button
-        type="button"
-        onClick={enviar}
-        style={{
-          width: '100%', height: 50, borderRadius: 12,
-          background: '#25D366', color: '#fff', border: 'none',
-          fontWeight: 700, fontSize: 15, cursor: 'pointer',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-          boxShadow: '0 4px 14px rgba(37,211,102,.35)',
-        }}
-      >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3.5C17.8 1.3 14.9 .1 11.9 .1 5.7 .1 .7 5.1 .7 11.3c0 2 .5 3.9 1.5 5.6L.5 23l6.3-1.6c1.6.9 3.4 1.4 5.2 1.4 6.2 0 11.2-5 11.2-11.2 0-3-1.2-5.9-3.2-8zm-8.1 17.2c-1.6 0-3.2-.4-4.6-1.3l-.3-.2-3.7.9.9-3.6-.2-.3a9.2 9.2 0 0 1-1.4-4.9c0-5.1 4.1-9.2 9.2-9.2 2.5 0 4.8 1 6.5 2.7s2.7 4 2.7 6.5c0 5.1-4.1 9.4-9.1 9.4zm5.2-7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.4-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.4-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.5-.3z"/></svg>
-        Cotizar por WhatsApp
-      </button>
-      <p style={{ fontSize: 11, color: 'var(--muted)', textAlign: 'center', margin: '10px 0 0' }}>
-        Te respondo personalmente con la mejor opción.
-      </p>
+      <SubmitRow />
     </div>
   );
 };
