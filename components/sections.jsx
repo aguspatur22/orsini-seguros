@@ -77,7 +77,7 @@ const ComoFunciona = () => {
     { n: '03', t: 'Te paso la mejor opción', d: 'Te respondo por WhatsApp con propuesta clara: precio + cobertura.' },
   ];
   return (
-    <section id="como-funciona" className="section-pad" style={{ padding: '88px 0', background: '#fff' }}>
+    <section id="como-funciona" className="section-pad" style={{ padding: '88px 0', background: 'var(--bg)' }}>
       <Container className="container-pad">
         <SectionTitle eyebrow="Cómo funciona" title={<span>Tres pasos. <em style={{ fontStyle: 'italic', color: 'var(--muted)' }}>Sin vueltas.</em></span>} />
         <div className="three-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 18 }}>
@@ -164,7 +164,7 @@ const Consejos = () => {
     { t: 'Asistencia al viajero por edad', d: 'Es importante informar preexistencias antes del momento del viaje y detallar la edad al momento del viaje.' },
   ];
   return (
-    <section id="consejos" className="section-pad" style={{ padding: '88px 0', background: '#fff' }}>
+    <section id="consejos" className="section-pad" style={{ padding: '88px 0', background: 'var(--bg)' }}>
       <Container className="container-pad">
         <SectionTitle eyebrow="Consejos del productor" title="Lo que conviene saber antes de cotizar" />
         <div className="tips-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>

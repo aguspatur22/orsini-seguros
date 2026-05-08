@@ -14,12 +14,14 @@ const Logo = ({ light = false }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
     <div style={{
       width: 44, height: 44, borderRadius: 10,
-      background: light ? 'rgba(255,255,255,.95)' : '#fff',
+      backgroundColor: light ? 'rgba(255,255,255,.95)' : '#fff',
       border: '1px solid ' + (light ? 'rgba(255,255,255,.2)' : 'var(--line)'),
-      display: 'grid', placeItems: 'center', flex: '0 0 auto', overflow: 'hidden',
-    }}>
-      <img src="assets/orsini-logo.jpeg" alt="Orsini Seguros" style={{ width: '100%', height: '100%', objectFit: 'contain' }}/>
-    </div>
+      flex: '0 0 auto', overflow: 'hidden',
+      backgroundImage: 'url(assets/orsini-seguros-logo-banner.jpg)',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center top',
+      backgroundSize: 'auto 88px',
+    }} />
     <div style={{ lineHeight: 1 }}>
       <div style={{ fontWeight: 800, fontSize: 17, letterSpacing: '-0.01em', color: light ? '#fff' : 'var(--ink)' }}>
         Orsini Seguros

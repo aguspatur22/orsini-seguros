@@ -95,12 +95,12 @@ const Hero = () => {
   };
 
   return (
-    <section id="cotizar" style={{ paddingTop: 24, paddingBottom: 80, position: 'relative' }}>
+    <section id="cotizar" style={{ paddingTop: 24, paddingBottom: 80, position: 'relative', background: 'var(--bg-hero, var(--bg))' }}>
       <div aria-hidden="true" style={{
         position: 'absolute', inset: 0, pointerEvents: 'none',
         background:
-          'radial-gradient(800px 400px at 80% -10%, rgba(21,101,192,.08), transparent 60%),' +
-          'radial-gradient(700px 500px at 0% 30%, rgba(40,150,254,.06), transparent 60%)'
+          'radial-gradient(900px 500px at 80% -10%, rgba(21,101,192,.13), transparent 60%),' +
+          'radial-gradient(800px 600px at 0% 40%, rgba(40,150,254,.10), transparent 60%)'
       }}/>
       <Container style={{ position: 'relative' }} className="container-pad">
         <div className="hero-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 580px)', gap: 48, alignItems: 'start', paddingTop: 40 }}>
@@ -123,6 +123,12 @@ const Hero = () => {
             }}>
               Cotizá tu seguro y <em style={{ fontStyle: 'italic', color: 'var(--accent-2)' }}>pagá menos</em>.
             </h1>
+            <p style={{
+              margin: '20px 0 0', fontSize: 18, lineHeight: 1.55, color: 'var(--ink-2)',
+              maxWidth: 520
+            }}>
+              Comparo entre las mejores compañías del mercado para conseguirte mejor precio y cobertura. Decime cuánto pagás y te digo si puedo mejorarlo.
+            </p>
             {/* Tile grid: visual cue per ramo */}
             <div className="ramo-tiles" style={{
               marginTop: 28,
@@ -180,7 +186,7 @@ const Hero = () => {
             </div>
             {/* Foto desktop: debajo del trust line */}
             <img className="julian-photo-desktop" src="assets/julian.jpg" alt="Julián Orsini"
-              style={{ width: 72, height: 72, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 20 }} />
+              style={{ width: 120, height: 120, borderRadius: '50%', objectFit: 'cover', objectPosition: 'top', marginTop: 24 }} />
           </div>
 
           {/* Right: form card */}
